@@ -1,4 +1,4 @@
-package biblioteca;
+package biblioteca.dominio.modelo;
 
 public abstract class ItemAcervo {
   private String titulo;

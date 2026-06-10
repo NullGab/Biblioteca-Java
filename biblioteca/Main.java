@@ -1,48 +1,22 @@
 package biblioteca;
-import java.util.Scanner;
-import java.util.ArrayList;
+
+import biblioteca.adaptador.entrada.swing.BibliotecaFrame;
+import biblioteca.adaptador.saida.persistencia.LivroRepositoryAdp;
+import biblioteca.aplicacao.LivroRepository;
+import biblioteca.aplicacao.LivroService;
 
 public class Main {
-  public static void main(String[] args){
-    ArrayList<Livro> listaLivros = new ArrayList<>();
-    ArrayList<Emprestimo> listaEmprestimos = new ArrayList<>();
+  public static void main(String[] args) {
 
-    Cadastro cadastro = new Cadastro();
-    Consultar consultar = new Consultar();
-    Excluir excluir = new Excluir();
-    GerenciarEmprestimo gerenciar = new GerenciarEmprestimo(); 
+    System.out.println("LOG: Inicializando sistema...");
 
-    Scanner scanner = new Scanner(System.in);
-    int opcao;
+    LivroRepository repository = new LivroRepositoryAdp();
 
-    while(true){ 
-      System.out.println("\n========== SISTEMA DE BIBLIOTECA ==========");
-      System.out.println("1- Cadastrar Livro | 2- Consultar | 3- Excluir | 4- Empréstimos | 0- Sair");
-      System.out.print("Escolha: ");
+    LivroService service = new LivroService(repository);
 
-      if(!scanner.hasNext()){
-        System.out.println("\nEntrada encerrada. Finalizando sistema.");
-        break;
-      }
+    BibliotecaFrame frame = new BibliotecaFrame(service);
 
-      if(!scanner.hasNextInt()){
-        scanner.nextLine();
-        System.out.println("Entrada inválida. Digite um número.");
-        continue;
-      }
-      opcao = scanner.nextInt();
-      scanner.nextLine();
-
-      if(opcao == 0) break;
-
-      switch (opcao) {
-        case 1: cadastro.cadastrar(listaLivros, scanner); break;
-        case 2: consultar.consultaLivro(listaLivros, scanner); break;
-        case 3: excluir.excluir(listaLivros, scanner); break;
-        case 4: gerenciar.gerenciarEmprestimo(listaLivros, listaEmprestimos, scanner); break;
-        default: System.out.println("Opção inválida!");
-      }
-    }
-    scanner.close();
+    System.out.println("LOG: Grafo montado. Abrindo interface gráfica.");
+    frame.exibir();
   }
-}
+} 

@@ -1,4 +1,4 @@
-package biblioteca;
+package biblioteca.dominio.modelo;
 
 public class Livro extends ItemAcervo {
   private String nomeAutor;
