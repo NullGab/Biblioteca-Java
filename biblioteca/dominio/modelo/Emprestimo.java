@@ -17,6 +17,7 @@ public class Emprestimo {
   public boolean getFoiDevolvido() { return foiDevolvido; }
   public Livro getLivroEmprestado() { return livroEmprestado; }
   public String getNomeLeitor() { return nomeLeitor; }
+  public String getDataEmprestimo() { return dataEmprestimo; }
 }
 
-public String getDataEmprestimo() { return dataEmprestimo; }
+

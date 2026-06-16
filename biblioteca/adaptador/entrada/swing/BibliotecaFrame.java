@@ -23,7 +23,7 @@ public class BibliotecaFrame extends JFrame {
     painelDeAbas.addTab("Cadastrar Livro", new PainelCadastroLivro(livroService));
 
     painelDeAbas.addTab("Acervo de Livros", new PainelAcervoLivro(livroService));
-    painelDeAbas.addTab("Gerenciar Empréstimos", new JPanel());
+    painelDeAbas.addTab("Gerenciar Empréstimos", new PainelGerenciarEmprestimo(livroService));
 
     add(painelDeAbas);
   }
