@@ -1,5 +1,6 @@
 package biblioteca.adaptador.entrada.swing;
 
+import biblioteca.aplicacao.EmprestimoService;
 import biblioteca.aplicacao.LivroService;
 import javax.swing.*;
 import java.awt.*;
@@ -7,9 +8,11 @@ import java.awt.*;
 public class BibliotecaFrame extends JFrame {
 
   private final LivroService livroService;
+  private final EmprestimoService emprestimoService;
 
-  public BibliotecaFrame(LivroService livroService) {
+  public BibliotecaFrame(LivroService livroService, EmprestimoService emprestimoService) {
     this.livroService = livroService;
+    this.emprestimoService = emprestimoService;
 
     setTitle("Sistema de Biblioteca");
     setSize(800, 600);
