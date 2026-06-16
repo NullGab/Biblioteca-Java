@@ -1,4 +1,4 @@
-  package biblioteca.dominio.modelo;
+package biblioteca.dominio.modelo;
 
 public class Emprestimo {
   private String nomeLeitor;
@@ -18,3 +18,5 @@ public class Emprestimo {
   public Livro getLivroEmprestado() { return livroEmprestado; }
   public String getNomeLeitor() { return nomeLeitor; }
 }
+
+public String getDataEmprestimo() { return dataEmprestimo; }
