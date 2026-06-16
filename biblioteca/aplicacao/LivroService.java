@@ -3,6 +3,7 @@ package biblioteca.aplicacao;
 import biblioteca.dominio.modelo.Genero;
 import biblioteca.dominio.modelo.Livro;
 import java.time.LocalDate;
+import java.util.List; 
 
 public class LivroService {
 
@@ -37,4 +38,9 @@ public class LivroService {
 
     repository.salvar(novoLivro);
   }
-}
+
+    public List<Livro> listarLivros() {
+      return repository.buscarTodos();
+
+    }
+  }

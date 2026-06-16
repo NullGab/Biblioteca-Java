@@ -3,7 +3,6 @@ package biblioteca.adaptador.entrada.swing;
 import biblioteca.aplicacao.EmprestimoService;
 import biblioteca.aplicacao.LivroService;
 import javax.swing.*;
-import java.awt.*;
 
 public class BibliotecaFrame extends JFrame {
 
@@ -19,12 +18,14 @@ public class BibliotecaFrame extends JFrame {
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     setLocationRelativeTo(null); 
 
-    JPanel painelPrincipal = new JPanel(new BorderLayout());
-    JLabel labelBemVindo = new JLabel("Sistema inicializado com sucesso!", SwingConstants.CENTER);
-    labelBemVindo.setFont(new Font("Arial", Font.BOLD, 18));
+    JTabbedPane painelDeAbas = new JTabbedPane();
 
-    painelPrincipal.add(labelBemVindo, BorderLayout.CENTER);
-    add(painelPrincipal);
+    painelDeAbas.addTab("Cadastrar Livro", new PainelCadastroLivro(livroService));
+
+    painelDeAbas.addTab("Acervo de Livros", new PainelAcervoLivro(livroService));
+    painelDeAbas.addTab("Gerenciar Empréstimos", new JPanel());
+
+    add(painelDeAbas);
   }
 
   public void exibir() {
