@@ -33,7 +33,8 @@ public class EmprestimoService {
     DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     String dataEmprestimoReal = dataHoje.format(formatador);
 
-    Emprestimo novoEmprestimo = new Emprestimo(nomeAluno, dataEmprestimoReal, livroEscolhido);
+    String oid = emprestimoRepository.gerarProximoCodigo();
+    Emprestimo novoEmprestimo = new Emprestimo(oid, nomeAluno, dataEmprestimoReal, livroEscolhido);
     emprestimoRepository.salvar(novoEmprestimo);
   }
 
@@ -43,6 +44,7 @@ public class EmprestimoService {
     for (Emprestimo e : emprestimoRepository.buscarTodos()) {
       if (e.getNomeLeitor().equalsIgnoreCase(nomeAluno) && !e.getFoiDevolvido()) {
         e.registrarDevolucao();
+        emprestimoRepository.atualizar(e);
         encontrou = true;
       }
     }

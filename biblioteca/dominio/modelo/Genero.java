@@ -1,6 +1,8 @@
 package biblioteca.dominio.modelo;
 
-public class Genero {
+import java.io.Serializable;
+
+public class Genero implements Serializable {
   private String genero; 
   private String descricao;
 

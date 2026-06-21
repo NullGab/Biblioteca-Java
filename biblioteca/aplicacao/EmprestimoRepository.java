@@ -6,4 +6,6 @@ import java.util.List;
 public interface EmprestimoRepository {
   void salvar(Emprestimo emprestimo);
   List<Emprestimo> buscarTodos();
+  String gerarProximoCodigo();
+  void atualizar(Emprestimo emprestimo);
 }

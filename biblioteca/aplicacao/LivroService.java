@@ -34,8 +34,8 @@ public class LivroService {
     }
 
     Genero genero = new Genero(genNome, desc);
-    Livro novoLivro = new Livro(nome, autor, isbnLimpo, editora, ano, paginas, genero);
-
+    String oid = repository.gerarProximoCodigo();
+    Livro novoLivro = new Livro(oid, nome, autor, isbnLimpo, editora, ano, paginas, genero);
     repository.salvar(novoLivro);
   }
 
